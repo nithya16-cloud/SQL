@@ -1,0 +1,3358 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfprojectinsurance"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "application_test.csv",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SK_ID_CURR",
+						"type": "String"
+					},
+					{
+						"name": "NAME_CONTRACT_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CODE_GENDER",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_CAR",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_REALTY",
+						"type": "String"
+					},
+					{
+						"name": "CNT_CHILDREN",
+						"type": "String"
+					},
+					{
+						"name": "AMT_INCOME_TOTAL",
+						"type": "String"
+					},
+					{
+						"name": "AMT_CREDIT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_ANNUITY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_GOODS_PRICE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_TYPE_SUITE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_INCOME_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_EDUCATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_FAMILY_STATUS",
+						"type": "String"
+					},
+					{
+						"name": "NAME_HOUSING_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "REGION_POPULATION_RELATIVE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_BIRTH",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_EMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_REGISTRATION",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_ID_PUBLISH",
+						"type": "String"
+					},
+					{
+						"name": "OWN_CAR_AGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_MOBIL",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMP_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_WORK_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_CONT_MOBILE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "OCCUPATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CNT_FAM_MEMBERS",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT_W_CITY",
+						"type": "String"
+					},
+					{
+						"name": "WEEKDAY_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "HOUR_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_LIVE_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_LIVE_CITY",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "ORGANIZATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_1",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_2",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_3",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_AVG",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MODE",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FONDKAPREMONT_MODE",
+						"type": "String"
+					},
+					{
+						"name": "HOUSETYPE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "TOTALAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "WALLSMATERIAL_MODE",
+						"type": "String"
+					},
+					{
+						"name": "EMERGENCYSTATE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_LAST_PHONE_CHANGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_2",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_3",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_4",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_5",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_6",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_7",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_8",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_9",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_10",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_11",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_12",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_13",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_14",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_15",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_16",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_17",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_18",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_19",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_20",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_21",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_HOUR",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_DAY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_WEEK",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_MON",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_QRT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_YEAR",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage4",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "Table",
+						"type": "String"
+					},
+					{
+						"name": "Row",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					},
+					{
+						"name": "Special",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage5",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SK_ID_CURR",
+						"type": "String"
+					},
+					{
+						"name": "NAME_CONTRACT_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CODE_GENDER",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_CAR",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_REALTY",
+						"type": "String"
+					},
+					{
+						"name": "CNT_CHILDREN",
+						"type": "String"
+					},
+					{
+						"name": "AMT_INCOME_TOTAL",
+						"type": "String"
+					},
+					{
+						"name": "AMT_CREDIT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_ANNUITY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_GOODS_PRICE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_TYPE_SUITE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_INCOME_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_EDUCATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_FAMILY_STATUS",
+						"type": "String"
+					},
+					{
+						"name": "NAME_HOUSING_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "REGION_POPULATION_RELATIVE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_BIRTH",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_EMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_REGISTRATION",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_ID_PUBLISH",
+						"type": "String"
+					},
+					{
+						"name": "OWN_CAR_AGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_MOBIL",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMP_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_WORK_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_CONT_MOBILE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "OCCUPATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CNT_FAM_MEMBERS",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT_W_CITY",
+						"type": "String"
+					},
+					{
+						"name": "WEEKDAY_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "HOUR_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_LIVE_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_LIVE_CITY",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "ORGANIZATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_1",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_2",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_3",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_AVG",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MODE",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FONDKAPREMONT_MODE",
+						"type": "String"
+					},
+					{
+						"name": "HOUSETYPE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "TOTALAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "WALLSMATERIAL_MODE",
+						"type": "String"
+					},
+					{
+						"name": "EMERGENCYSTATE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_LAST_PHONE_CHANGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_2",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_3",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_4",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_5",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_6",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_7",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_8",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_9",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_10",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_11",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_12",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_13",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_14",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_15",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_16",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_17",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_18",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_19",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_20",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_21",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_HOUR",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_DAY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_WEEK",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_MON",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_QRT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_YEAR",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText6')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage6",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "Table",
+						"type": "String"
+					},
+					{
+						"name": "Row",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					},
+					{
+						"name": "Special",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText7')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "Table",
+						"type": "String"
+					},
+					{
+						"name": "Row",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					},
+					{
+						"name": "Special",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText8')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage6",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText9')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "Table",
+						"type": "String"
+					},
+					{
+						"name": "Row",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					},
+					{
+						"name": "Special",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"SK_ID_CURR": {
+							"type": "string"
+						},
+						"NAME_CONTRACT_TYPE": {
+							"type": "string"
+						},
+						"CODE_GENDER": {
+							"type": "string"
+						},
+						"FLAG_OWN_CAR": {
+							"type": "string"
+						},
+						"FLAG_OWN_REALTY": {
+							"type": "string"
+						},
+						"CNT_CHILDREN": {
+							"type": "string"
+						},
+						"AMT_INCOME_TOTAL": {
+							"type": "string"
+						},
+						"AMT_CREDIT": {
+							"type": "string"
+						},
+						"AMT_ANNUITY": {
+							"type": "string"
+						},
+						"AMT_GOODS_PRICE": {
+							"type": "string"
+						},
+						"NAME_TYPE_SUITE": {
+							"type": "string"
+						},
+						"NAME_INCOME_TYPE": {
+							"type": "string"
+						},
+						"NAME_EDUCATION_TYPE": {
+							"type": "string"
+						},
+						"NAME_FAMILY_STATUS": {
+							"type": "string"
+						},
+						"NAME_HOUSING_TYPE": {
+							"type": "string"
+						},
+						"REGION_POPULATION_RELATIVE": {
+							"type": "string"
+						},
+						"DAYS_BIRTH": {
+							"type": "string"
+						},
+						"DAYS_EMPLOYED": {
+							"type": "string"
+						},
+						"DAYS_REGISTRATION": {
+							"type": "string"
+						},
+						"DAYS_ID_PUBLISH": {
+							"type": "string"
+						},
+						"OWN_CAR_AGE": {
+							"type": "string"
+						},
+						"FLAG_MOBIL": {
+							"type": "string"
+						},
+						"FLAG_EMP_PHONE": {
+							"type": "string"
+						},
+						"FLAG_WORK_PHONE": {
+							"type": "string"
+						},
+						"FLAG_CONT_MOBILE": {
+							"type": "string"
+						},
+						"FLAG_PHONE": {
+							"type": "string"
+						},
+						"FLAG_EMAIL": {
+							"type": "string"
+						},
+						"OCCUPATION_TYPE": {
+							"type": "string"
+						},
+						"CNT_FAM_MEMBERS": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT_W_CITY": {
+							"type": "string"
+						},
+						"WEEKDAY_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"HOUR_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_LIVE_REGION": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"LIVE_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_LIVE_CITY": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"LIVE_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"ORGANIZATION_TYPE": {
+							"type": "string"
+						},
+						"EXT_SOURCE_1": {
+							"type": "string"
+						},
+						"EXT_SOURCE_2": {
+							"type": "string"
+						},
+						"EXT_SOURCE_3": {
+							"type": "string"
+						},
+						"APARTMENTS_AVG": {
+							"type": "string"
+						},
+						"BASEMENTAREA_AVG": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_AVG": {
+							"type": "string"
+						},
+						"YEARS_BUILD_AVG": {
+							"type": "string"
+						},
+						"COMMONAREA_AVG": {
+							"type": "string"
+						},
+						"ELEVATORS_AVG": {
+							"type": "string"
+						},
+						"ENTRANCES_AVG": {
+							"type": "string"
+						},
+						"FLOORSMAX_AVG": {
+							"type": "string"
+						},
+						"FLOORSMIN_AVG": {
+							"type": "string"
+						},
+						"LANDAREA_AVG": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"LIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"APARTMENTS_MODE": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MODE": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MODE": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MODE": {
+							"type": "string"
+						},
+						"COMMONAREA_MODE": {
+							"type": "string"
+						},
+						"ELEVATORS_MODE": {
+							"type": "string"
+						},
+						"ENTRANCES_MODE": {
+							"type": "string"
+						},
+						"FLOORSMAX_MODE": {
+							"type": "string"
+						},
+						"FLOORSMIN_MODE": {
+							"type": "string"
+						},
+						"LANDAREA_MODE": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"LIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"APARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MEDI": {
+							"type": "string"
+						},
+						"COMMONAREA_MEDI": {
+							"type": "string"
+						},
+						"ELEVATORS_MEDI": {
+							"type": "string"
+						},
+						"ENTRANCES_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMAX_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMIN_MEDI": {
+							"type": "string"
+						},
+						"LANDAREA_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"FONDKAPREMONT_MODE": {
+							"type": "string"
+						},
+						"HOUSETYPE_MODE": {
+							"type": "string"
+						},
+						"TOTALAREA_MODE": {
+							"type": "string"
+						},
+						"WALLSMATERIAL_MODE": {
+							"type": "string"
+						},
+						"EMERGENCYSTATE_MODE": {
+							"type": "string"
+						},
+						"OBS_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"OBS_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DAYS_LAST_PHONE_CHANGE": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_2": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_3": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_4": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_5": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_6": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_7": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_8": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_9": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_10": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_11": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_12": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_13": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_14": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_15": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_16": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_17": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_18": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_19": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_20": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_21": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_HOUR": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_DAY": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_WEEK": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_MON": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_QRT": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_YEAR": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"SK_ID_CURR": {
+							"type": "string"
+						},
+						"NAME_CONTRACT_TYPE": {
+							"type": "string"
+						},
+						"CODE_GENDER": {
+							"type": "string"
+						},
+						"FLAG_OWN_CAR": {
+							"type": "string"
+						},
+						"FLAG_OWN_REALTY": {
+							"type": "string"
+						},
+						"CNT_CHILDREN": {
+							"type": "string"
+						},
+						"AMT_INCOME_TOTAL": {
+							"type": "string"
+						},
+						"AMT_CREDIT": {
+							"type": "string"
+						},
+						"AMT_ANNUITY": {
+							"type": "string"
+						},
+						"AMT_GOODS_PRICE": {
+							"type": "string"
+						},
+						"NAME_TYPE_SUITE": {
+							"type": "string"
+						},
+						"NAME_INCOME_TYPE": {
+							"type": "string"
+						},
+						"NAME_EDUCATION_TYPE": {
+							"type": "string"
+						},
+						"NAME_FAMILY_STATUS": {
+							"type": "string"
+						},
+						"NAME_HOUSING_TYPE": {
+							"type": "string"
+						},
+						"REGION_POPULATION_RELATIVE": {
+							"type": "string"
+						},
+						"DAYS_BIRTH": {
+							"type": "string"
+						},
+						"DAYS_EMPLOYED": {
+							"type": "string"
+						},
+						"DAYS_REGISTRATION": {
+							"type": "string"
+						},
+						"DAYS_ID_PUBLISH": {
+							"type": "string"
+						},
+						"OWN_CAR_AGE": {
+							"type": "string"
+						},
+						"FLAG_MOBIL": {
+							"type": "string"
+						},
+						"FLAG_EMP_PHONE": {
+							"type": "string"
+						},
+						"FLAG_WORK_PHONE": {
+							"type": "string"
+						},
+						"FLAG_CONT_MOBILE": {
+							"type": "string"
+						},
+						"FLAG_PHONE": {
+							"type": "string"
+						},
+						"FLAG_EMAIL": {
+							"type": "string"
+						},
+						"OCCUPATION_TYPE": {
+							"type": "string"
+						},
+						"CNT_FAM_MEMBERS": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT_W_CITY": {
+							"type": "string"
+						},
+						"WEEKDAY_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"HOUR_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_LIVE_REGION": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"LIVE_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_LIVE_CITY": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"LIVE_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"ORGANIZATION_TYPE": {
+							"type": "string"
+						},
+						"EXT_SOURCE_1": {
+							"type": "string"
+						},
+						"EXT_SOURCE_2": {
+							"type": "string"
+						},
+						"EXT_SOURCE_3": {
+							"type": "string"
+						},
+						"APARTMENTS_AVG": {
+							"type": "string"
+						},
+						"BASEMENTAREA_AVG": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_AVG": {
+							"type": "string"
+						},
+						"YEARS_BUILD_AVG": {
+							"type": "string"
+						},
+						"COMMONAREA_AVG": {
+							"type": "string"
+						},
+						"ELEVATORS_AVG": {
+							"type": "string"
+						},
+						"ENTRANCES_AVG": {
+							"type": "string"
+						},
+						"FLOORSMAX_AVG": {
+							"type": "string"
+						},
+						"FLOORSMIN_AVG": {
+							"type": "string"
+						},
+						"LANDAREA_AVG": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"LIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"APARTMENTS_MODE": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MODE": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MODE": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MODE": {
+							"type": "string"
+						},
+						"COMMONAREA_MODE": {
+							"type": "string"
+						},
+						"ELEVATORS_MODE": {
+							"type": "string"
+						},
+						"ENTRANCES_MODE": {
+							"type": "string"
+						},
+						"FLOORSMAX_MODE": {
+							"type": "string"
+						},
+						"FLOORSMIN_MODE": {
+							"type": "string"
+						},
+						"LANDAREA_MODE": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"LIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"APARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MEDI": {
+							"type": "string"
+						},
+						"COMMONAREA_MEDI": {
+							"type": "string"
+						},
+						"ELEVATORS_MEDI": {
+							"type": "string"
+						},
+						"ENTRANCES_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMAX_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMIN_MEDI": {
+							"type": "string"
+						},
+						"LANDAREA_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"FONDKAPREMONT_MODE": {
+							"type": "string"
+						},
+						"HOUSETYPE_MODE": {
+							"type": "string"
+						},
+						"TOTALAREA_MODE": {
+							"type": "string"
+						},
+						"WALLSMATERIAL_MODE": {
+							"type": "string"
+						},
+						"EMERGENCYSTATE_MODE": {
+							"type": "string"
+						},
+						"OBS_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"OBS_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DAYS_LAST_PHONE_CHANGE": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_2": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_3": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_4": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_5": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_6": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_7": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_8": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_9": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_10": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_11": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_12": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_13": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_14": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_15": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_16": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_17": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_18": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_19": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_20": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_21": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_HOUR": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_DAY": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_WEEK": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_MON": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_QRT": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_YEAR": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"SK_ID_CURR": {
+							"type": "string"
+						},
+						"NAME_CONTRACT_TYPE": {
+							"type": "string"
+						},
+						"CODE_GENDER": {
+							"type": "string"
+						},
+						"FLAG_OWN_CAR": {
+							"type": "string"
+						},
+						"FLAG_OWN_REALTY": {
+							"type": "string"
+						},
+						"CNT_CHILDREN": {
+							"type": "string"
+						},
+						"AMT_INCOME_TOTAL": {
+							"type": "string"
+						},
+						"AMT_CREDIT": {
+							"type": "string"
+						},
+						"AMT_ANNUITY": {
+							"type": "string"
+						},
+						"AMT_GOODS_PRICE": {
+							"type": "string"
+						},
+						"NAME_TYPE_SUITE": {
+							"type": "string"
+						},
+						"NAME_INCOME_TYPE": {
+							"type": "string"
+						},
+						"NAME_EDUCATION_TYPE": {
+							"type": "string"
+						},
+						"NAME_FAMILY_STATUS": {
+							"type": "string"
+						},
+						"NAME_HOUSING_TYPE": {
+							"type": "string"
+						},
+						"REGION_POPULATION_RELATIVE": {
+							"type": "string"
+						},
+						"DAYS_BIRTH": {
+							"type": "string"
+						},
+						"DAYS_EMPLOYED": {
+							"type": "string"
+						},
+						"DAYS_REGISTRATION": {
+							"type": "string"
+						},
+						"DAYS_ID_PUBLISH": {
+							"type": "string"
+						},
+						"OWN_CAR_AGE": {
+							"type": "string"
+						},
+						"FLAG_MOBIL": {
+							"type": "string"
+						},
+						"FLAG_EMP_PHONE": {
+							"type": "string"
+						},
+						"FLAG_WORK_PHONE": {
+							"type": "string"
+						},
+						"FLAG_CONT_MOBILE": {
+							"type": "string"
+						},
+						"FLAG_PHONE": {
+							"type": "string"
+						},
+						"FLAG_EMAIL": {
+							"type": "string"
+						},
+						"OCCUPATION_TYPE": {
+							"type": "string"
+						},
+						"CNT_FAM_MEMBERS": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT": {
+							"type": "string"
+						},
+						"REGION_RATING_CLIENT_W_CITY": {
+							"type": "string"
+						},
+						"WEEKDAY_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"HOUR_APPR_PROCESS_START": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_LIVE_REGION": {
+							"type": "string"
+						},
+						"REG_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"LIVE_REGION_NOT_WORK_REGION": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_LIVE_CITY": {
+							"type": "string"
+						},
+						"REG_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"LIVE_CITY_NOT_WORK_CITY": {
+							"type": "string"
+						},
+						"ORGANIZATION_TYPE": {
+							"type": "string"
+						},
+						"EXT_SOURCE_1": {
+							"type": "string"
+						},
+						"EXT_SOURCE_2": {
+							"type": "string"
+						},
+						"EXT_SOURCE_3": {
+							"type": "string"
+						},
+						"APARTMENTS_AVG": {
+							"type": "string"
+						},
+						"BASEMENTAREA_AVG": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_AVG": {
+							"type": "string"
+						},
+						"YEARS_BUILD_AVG": {
+							"type": "string"
+						},
+						"COMMONAREA_AVG": {
+							"type": "string"
+						},
+						"ELEVATORS_AVG": {
+							"type": "string"
+						},
+						"ENTRANCES_AVG": {
+							"type": "string"
+						},
+						"FLOORSMAX_AVG": {
+							"type": "string"
+						},
+						"FLOORSMIN_AVG": {
+							"type": "string"
+						},
+						"LANDAREA_AVG": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"LIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_AVG": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_AVG": {
+							"type": "string"
+						},
+						"APARTMENTS_MODE": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MODE": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MODE": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MODE": {
+							"type": "string"
+						},
+						"COMMONAREA_MODE": {
+							"type": "string"
+						},
+						"ELEVATORS_MODE": {
+							"type": "string"
+						},
+						"ENTRANCES_MODE": {
+							"type": "string"
+						},
+						"FLOORSMAX_MODE": {
+							"type": "string"
+						},
+						"FLOORSMIN_MODE": {
+							"type": "string"
+						},
+						"LANDAREA_MODE": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"LIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MODE": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MODE": {
+							"type": "string"
+						},
+						"APARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"BASEMENTAREA_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BEGINEXPLUATATION_MEDI": {
+							"type": "string"
+						},
+						"YEARS_BUILD_MEDI": {
+							"type": "string"
+						},
+						"COMMONAREA_MEDI": {
+							"type": "string"
+						},
+						"ELEVATORS_MEDI": {
+							"type": "string"
+						},
+						"ENTRANCES_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMAX_MEDI": {
+							"type": "string"
+						},
+						"FLOORSMIN_MEDI": {
+							"type": "string"
+						},
+						"LANDAREA_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"LIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAPARTMENTS_MEDI": {
+							"type": "string"
+						},
+						"NONLIVINGAREA_MEDI": {
+							"type": "string"
+						},
+						"FONDKAPREMONT_MODE": {
+							"type": "string"
+						},
+						"HOUSETYPE_MODE": {
+							"type": "string"
+						},
+						"TOTALAREA_MODE": {
+							"type": "string"
+						},
+						"WALLSMATERIAL_MODE": {
+							"type": "string"
+						},
+						"EMERGENCYSTATE_MODE": {
+							"type": "string"
+						},
+						"OBS_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_30_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"OBS_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DEF_60_CNT_SOCIAL_CIRCLE": {
+							"type": "string"
+						},
+						"DAYS_LAST_PHONE_CHANGE": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_2": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_3": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_4": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_5": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_6": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_7": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_8": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_9": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_10": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_11": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_12": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_13": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_14": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_15": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_16": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_17": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_18": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_19": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_20": {
+							"type": "string"
+						},
+						"FLAG_DOCUMENT_21": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_HOUR": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_DAY": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_WEEK": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_MON": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_QRT": {
+							"type": "string"
+						},
+						"AMT_REQ_CREDIT_BUREAU_YEAR": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EventBasedTrigger')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText5",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-02-10T05:37:43Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText4')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText5')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/OnDelete')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText8",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText7",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-02-10T05:58:59Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText8')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText7')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TEST')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText12",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Json4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Json4')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Trigger Pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText6",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText3",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-02-10T05:45:43Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText6')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Tumbling Window')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"sqlReaderStoredProcedureName": "[[dbo].[salesbyday1]",
+								"storedProcedureParameters": {
+									"enddate": {
+										"type": "String",
+										"value": {
+											"value": "@pipeline().parameters.penddate",
+											"type": "Expression"
+										}
+									},
+									"startdate": {
+										"type": "String",
+										"value": {
+											"value": "@pipeline().parameters.pstartdate",
+											"type": "Expression"
+										}
+									}
+								},
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlTable1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText9",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"pstartdate": {
+						"type": "string"
+					},
+					"penddate": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-02-10T06:27:32Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText9')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Json1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-01-06T01:17:20Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Json1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DataFlow Activity')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "DelimitedText11",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "Json2",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "filter1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          EMPLOYEE_ID as string,",
+						"          FIRST_NAME as string,",
+						"          LAST_NAME as string,",
+						"          EMAIL as string,",
+						"          PHONE_NUMBER as string,",
+						"          HIRE_DATE as string,",
+						"          JOB_ID as string,",
+						"          SALARY as string,",
+						"          COMMISSION_PCT as string,",
+						"          MANAGER_ID as string,",
+						"          DEPARTMENT_ID as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source1",
+						"source1 filter(EMPLOYEE_ID=='200') ~> filter1",
+						"filter1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          SK_ID_CURR as string,",
+						"          NAME_CONTRACT_TYPE as string,",
+						"          CODE_GENDER as string,",
+						"          FLAG_OWN_CAR as string,",
+						"          FLAG_OWN_REALTY as string,",
+						"          CNT_CHILDREN as string,",
+						"          AMT_INCOME_TOTAL as string,",
+						"          AMT_CREDIT as string,",
+						"          AMT_ANNUITY as string,",
+						"          AMT_GOODS_PRICE as string,",
+						"          NAME_TYPE_SUITE as string,",
+						"          NAME_INCOME_TYPE as string,",
+						"          NAME_EDUCATION_TYPE as string,",
+						"          NAME_FAMILY_STATUS as string,",
+						"          NAME_HOUSING_TYPE as string,",
+						"          REGION_POPULATION_RELATIVE as string,",
+						"          DAYS_BIRTH as string,",
+						"          DAYS_EMPLOYED as string,",
+						"          DAYS_REGISTRATION as string,",
+						"          DAYS_ID_PUBLISH as string,",
+						"          OWN_CAR_AGE as string,",
+						"          FLAG_MOBIL as string,",
+						"          FLAG_EMP_PHONE as string,",
+						"          FLAG_WORK_PHONE as string,",
+						"          FLAG_CONT_MOBILE as string,",
+						"          FLAG_PHONE as string,",
+						"          FLAG_EMAIL as string,",
+						"          OCCUPATION_TYPE as string,",
+						"          CNT_FAM_MEMBERS as string,",
+						"          REGION_RATING_CLIENT as string,",
+						"          REGION_RATING_CLIENT_W_CITY as string,",
+						"          WEEKDAY_APPR_PROCESS_START as string,",
+						"          HOUR_APPR_PROCESS_START as string,",
+						"          REG_REGION_NOT_LIVE_REGION as string,",
+						"          REG_REGION_NOT_WORK_REGION as string,",
+						"          LIVE_REGION_NOT_WORK_REGION as string,",
+						"          REG_CITY_NOT_LIVE_CITY as string,",
+						"          REG_CITY_NOT_WORK_CITY as string,",
+						"          LIVE_CITY_NOT_WORK_CITY as string,",
+						"          ORGANIZATION_TYPE as string,",
+						"          EXT_SOURCE_1 as string,",
+						"          EXT_SOURCE_2 as string,",
+						"          EXT_SOURCE_3 as string,",
+						"          APARTMENTS_AVG as string,",
+						"          BASEMENTAREA_AVG as string,",
+						"          YEARS_BEGINEXPLUATATION_AVG as string,",
+						"          YEARS_BUILD_AVG as string,",
+						"          COMMONAREA_AVG as string,",
+						"          ELEVATORS_AVG as string,",
+						"          ENTRANCES_AVG as string,",
+						"          FLOORSMAX_AVG as string,",
+						"          FLOORSMIN_AVG as string,",
+						"          LANDAREA_AVG as string,",
+						"          LIVINGAPARTMENTS_AVG as string,",
+						"          LIVINGAREA_AVG as string,",
+						"          NONLIVINGAPARTMENTS_AVG as string,",
+						"          NONLIVINGAREA_AVG as string,",
+						"          APARTMENTS_MODE as string,",
+						"          BASEMENTAREA_MODE as string,",
+						"          YEARS_BEGINEXPLUATATION_MODE as string,",
+						"          YEARS_BUILD_MODE as string,",
+						"          COMMONAREA_MODE as string,",
+						"          ELEVATORS_MODE as string,",
+						"          ENTRANCES_MODE as string,",
+						"          FLOORSMAX_MODE as string,",
+						"          FLOORSMIN_MODE as string,",
+						"          LANDAREA_MODE as string,",
+						"          LIVINGAPARTMENTS_MODE as string,",
+						"          LIVINGAREA_MODE as string,",
+						"          NONLIVINGAPARTMENTS_MODE as string,",
+						"          NONLIVINGAREA_MODE as string,",
+						"          APARTMENTS_MEDI as string,",
+						"          BASEMENTAREA_MEDI as string,",
+						"          YEARS_BEGINEXPLUATATION_MEDI as string,",
+						"          YEARS_BUILD_MEDI as string,",
+						"          COMMONAREA_MEDI as string,",
+						"          ELEVATORS_MEDI as string,",
+						"          ENTRANCES_MEDI as string,",
+						"          FLOORSMAX_MEDI as string,",
+						"          FLOORSMIN_MEDI as string,",
+						"          LANDAREA_MEDI as string,",
+						"          LIVINGAPARTMENTS_MEDI as string,",
+						"          LIVINGAREA_MEDI as string,",
+						"          NONLIVINGAPARTMENTS_MEDI as string,",
+						"          NONLIVINGAREA_MEDI as string,",
+						"          FONDKAPREMONT_MODE as string,",
+						"          HOUSETYPE_MODE as string,",
+						"          TOTALAREA_MODE as string,",
+						"          WALLSMATERIAL_MODE as string,",
+						"          EMERGENCYSTATE_MODE as string,",
+						"          OBS_30_CNT_SOCIAL_CIRCLE as string,",
+						"          DEF_30_CNT_SOCIAL_CIRCLE as string,",
+						"          OBS_60_CNT_SOCIAL_CIRCLE as string,",
+						"          DEF_60_CNT_SOCIAL_CIRCLE as string,",
+						"          DAYS_LAST_PHONE_CHANGE as string,",
+						"          FLAG_DOCUMENT_2 as string,",
+						"          FLAG_DOCUMENT_3 as string,",
+						"          FLAG_DOCUMENT_4 as string,",
+						"          FLAG_DOCUMENT_5 as string,",
+						"          FLAG_DOCUMENT_6 as string,",
+						"          FLAG_DOCUMENT_7 as string,",
+						"          FLAG_DOCUMENT_8 as string,",
+						"          FLAG_DOCUMENT_9 as string,",
+						"          FLAG_DOCUMENT_10 as string,",
+						"          FLAG_DOCUMENT_11 as string,",
+						"          FLAG_DOCUMENT_12 as string,",
+						"          FLAG_DOCUMENT_13 as string,",
+						"          FLAG_DOCUMENT_14 as string,",
+						"          FLAG_DOCUMENT_15 as string,",
+						"          FLAG_DOCUMENT_16 as string,",
+						"          FLAG_DOCUMENT_17 as string,",
+						"          FLAG_DOCUMENT_18 as string,",
+						"          FLAG_DOCUMENT_19 as string,",
+						"          FLAG_DOCUMENT_20 as string,",
+						"          FLAG_DOCUMENT_21 as string,",
+						"          AMT_REQ_CREDIT_BUREAU_HOUR as string,",
+						"          AMT_REQ_CREDIT_BUREAU_DAY as string,",
+						"          AMT_REQ_CREDIT_BUREAU_WEEK as string,",
+						"          AMT_REQ_CREDIT_BUREAU_MON as string,",
+						"          AMT_REQ_CREDIT_BUREAU_QRT as string,",
+						"          AMT_REQ_CREDIT_BUREAU_YEAR as string",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Json2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/joins')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "AzureSqlTable2",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						},
+						{
+							"dataset": {
+								"referenceName": "AzureSqlTable2",
+								"type": "DatasetReference"
+							},
+							"name": "source2"
+						},
+						{
+							"dataset": {
+								"referenceName": "AzureSqlTable3",
+								"type": "DatasetReference"
+							},
+							"name": "source3"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "Json3",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "join1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          CustomerID as integer,",
+						"          NameStyle as boolean,",
+						"          Title as string,",
+						"          FirstName as string,",
+						"          MiddleName as string,",
+						"          LastName as string,",
+						"          Suffix as string,",
+						"          CompanyName as string,",
+						"          SalesPerson as string,",
+						"          EmailAddress as string,",
+						"          Phone as string,",
+						"          PasswordHash as string,",
+						"          PasswordSalt as string,",
+						"          rowguid as string,",
+						"          ModifiedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> source1",
+						"source(output(",
+						"          CustomerID as integer,",
+						"          NameStyle as boolean,",
+						"          Title as string,",
+						"          FirstName as string,",
+						"          MiddleName as string,",
+						"          LastName as string,",
+						"          Suffix as string,",
+						"          CompanyName as string,",
+						"          SalesPerson as string,",
+						"          EmailAddress as string,",
+						"          Phone as string,",
+						"          PasswordHash as string,",
+						"          PasswordSalt as string,",
+						"          rowguid as string,",
+						"          ModifiedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> source2",
+						"source(output(",
+						"          SalesOrderID as integer,",
+						"          RevisionNumber as integer,",
+						"          OrderDate as timestamp,",
+						"          DueDate as timestamp,",
+						"          ShipDate as timestamp,",
+						"          Status as integer,",
+						"          OnlineOrderFlag as boolean,",
+						"          SalesOrderNumber as string,",
+						"          PurchaseOrderNumber as string,",
+						"          AccountNumber as string,",
+						"          CustomerID as integer,",
+						"          ShipToAddressID as integer,",
+						"          BillToAddressID as integer,",
+						"          ShipMethod as string,",
+						"          CreditCardApprovalCode as string,",
+						"          SubTotal as decimal(19,4),",
+						"          TaxAmt as decimal(19,4),",
+						"          Freight as decimal(19,4),",
+						"          TotalDue as decimal(19,4),",
+						"          Comment as string,",
+						"          rowguid as string,",
+						"          ModifiedDate as timestamp",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> source3",
+						"source1, source3 join(source1@CustomerID == source3@CustomerID,",
+						"     joinType:'inner',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> join1",
+						"join1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          SK_ID_CURR as string,",
+						"          NAME_CONTRACT_TYPE as string,",
+						"          CODE_GENDER as string,",
+						"          FLAG_OWN_CAR as string,",
+						"          FLAG_OWN_REALTY as string,",
+						"          CNT_CHILDREN as string,",
+						"          AMT_INCOME_TOTAL as string,",
+						"          AMT_CREDIT as string,",
+						"          AMT_ANNUITY as string,",
+						"          AMT_GOODS_PRICE as string,",
+						"          NAME_TYPE_SUITE as string,",
+						"          NAME_INCOME_TYPE as string,",
+						"          NAME_EDUCATION_TYPE as string,",
+						"          NAME_FAMILY_STATUS as string,",
+						"          NAME_HOUSING_TYPE as string,",
+						"          REGION_POPULATION_RELATIVE as string,",
+						"          DAYS_BIRTH as string,",
+						"          DAYS_EMPLOYED as string,",
+						"          DAYS_REGISTRATION as string,",
+						"          DAYS_ID_PUBLISH as string,",
+						"          OWN_CAR_AGE as string,",
+						"          FLAG_MOBIL as string,",
+						"          FLAG_EMP_PHONE as string,",
+						"          FLAG_WORK_PHONE as string,",
+						"          FLAG_CONT_MOBILE as string,",
+						"          FLAG_PHONE as string,",
+						"          FLAG_EMAIL as string,",
+						"          OCCUPATION_TYPE as string,",
+						"          CNT_FAM_MEMBERS as string,",
+						"          REGION_RATING_CLIENT as string,",
+						"          REGION_RATING_CLIENT_W_CITY as string,",
+						"          WEEKDAY_APPR_PROCESS_START as string,",
+						"          HOUR_APPR_PROCESS_START as string,",
+						"          REG_REGION_NOT_LIVE_REGION as string,",
+						"          REG_REGION_NOT_WORK_REGION as string,",
+						"          LIVE_REGION_NOT_WORK_REGION as string,",
+						"          REG_CITY_NOT_LIVE_CITY as string,",
+						"          REG_CITY_NOT_WORK_CITY as string,",
+						"          LIVE_CITY_NOT_WORK_CITY as string,",
+						"          ORGANIZATION_TYPE as string,",
+						"          EXT_SOURCE_1 as string,",
+						"          EXT_SOURCE_2 as string,",
+						"          EXT_SOURCE_3 as string,",
+						"          APARTMENTS_AVG as string,",
+						"          BASEMENTAREA_AVG as string,",
+						"          YEARS_BEGINEXPLUATATION_AVG as string,",
+						"          YEARS_BUILD_AVG as string,",
+						"          COMMONAREA_AVG as string,",
+						"          ELEVATORS_AVG as string,",
+						"          ENTRANCES_AVG as string,",
+						"          FLOORSMAX_AVG as string,",
+						"          FLOORSMIN_AVG as string,",
+						"          LANDAREA_AVG as string,",
+						"          LIVINGAPARTMENTS_AVG as string,",
+						"          LIVINGAREA_AVG as string,",
+						"          NONLIVINGAPARTMENTS_AVG as string,",
+						"          NONLIVINGAREA_AVG as string,",
+						"          APARTMENTS_MODE as string,",
+						"          BASEMENTAREA_MODE as string,",
+						"          YEARS_BEGINEXPLUATATION_MODE as string,",
+						"          YEARS_BUILD_MODE as string,",
+						"          COMMONAREA_MODE as string,",
+						"          ELEVATORS_MODE as string,",
+						"          ENTRANCES_MODE as string,",
+						"          FLOORSMAX_MODE as string,",
+						"          FLOORSMIN_MODE as string,",
+						"          LANDAREA_MODE as string,",
+						"          LIVINGAPARTMENTS_MODE as string,",
+						"          LIVINGAREA_MODE as string,",
+						"          NONLIVINGAPARTMENTS_MODE as string,",
+						"          NONLIVINGAREA_MODE as string,",
+						"          APARTMENTS_MEDI as string,",
+						"          BASEMENTAREA_MEDI as string,",
+						"          YEARS_BEGINEXPLUATATION_MEDI as string,",
+						"          YEARS_BUILD_MEDI as string,",
+						"          COMMONAREA_MEDI as string,",
+						"          ELEVATORS_MEDI as string,",
+						"          ENTRANCES_MEDI as string,",
+						"          FLOORSMAX_MEDI as string,",
+						"          FLOORSMIN_MEDI as string,",
+						"          LANDAREA_MEDI as string,",
+						"          LIVINGAPARTMENTS_MEDI as string,",
+						"          LIVINGAREA_MEDI as string,",
+						"          NONLIVINGAPARTMENTS_MEDI as string,",
+						"          NONLIVINGAREA_MEDI as string,",
+						"          FONDKAPREMONT_MODE as string,",
+						"          HOUSETYPE_MODE as string,",
+						"          TOTALAREA_MODE as string,",
+						"          WALLSMATERIAL_MODE as string,",
+						"          EMERGENCYSTATE_MODE as string,",
+						"          OBS_30_CNT_SOCIAL_CIRCLE as string,",
+						"          DEF_30_CNT_SOCIAL_CIRCLE as string,",
+						"          OBS_60_CNT_SOCIAL_CIRCLE as string,",
+						"          DEF_60_CNT_SOCIAL_CIRCLE as string,",
+						"          DAYS_LAST_PHONE_CHANGE as string,",
+						"          FLAG_DOCUMENT_2 as string,",
+						"          FLAG_DOCUMENT_3 as string,",
+						"          FLAG_DOCUMENT_4 as string,",
+						"          FLAG_DOCUMENT_5 as string,",
+						"          FLAG_DOCUMENT_6 as string,",
+						"          FLAG_DOCUMENT_7 as string,",
+						"          FLAG_DOCUMENT_8 as string,",
+						"          FLAG_DOCUMENT_9 as string,",
+						"          FLAG_DOCUMENT_10 as string,",
+						"          FLAG_DOCUMENT_11 as string,",
+						"          FLAG_DOCUMENT_12 as string,",
+						"          FLAG_DOCUMENT_13 as string,",
+						"          FLAG_DOCUMENT_14 as string,",
+						"          FLAG_DOCUMENT_15 as string,",
+						"          FLAG_DOCUMENT_16 as string,",
+						"          FLAG_DOCUMENT_17 as string,",
+						"          FLAG_DOCUMENT_18 as string,",
+						"          FLAG_DOCUMENT_19 as string,",
+						"          FLAG_DOCUMENT_20 as string,",
+						"          FLAG_DOCUMENT_21 as string,",
+						"          AMT_REQ_CREDIT_BUREAU_HOUR as string,",
+						"          AMT_REQ_CREDIT_BUREAU_DAY as string,",
+						"          AMT_REQ_CREDIT_BUREAU_WEEK as string,",
+						"          AMT_REQ_CREDIT_BUREAU_MON as string,",
+						"          AMT_REQ_CREDIT_BUREAU_QRT as string,",
+						"          AMT_REQ_CREDIT_BUREAU_YEAR as string",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Json3')]"
+			]
+		}
+	]
+}

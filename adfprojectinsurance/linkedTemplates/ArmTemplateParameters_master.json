@@ -1,0 +1,90 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfprojectinsurance"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage4_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage5_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage6_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage7_connectionString": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks2_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks3_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"adbdbtsqlserver_accessToken": {
+			"value": ""
+		},
+		"ls_ADBADFIntegration_version2_accessToken": {
+			"value": ""
+		},
+		"ls_adb_connection_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"AzureDatabricks2_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"AzureDatabricks3_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "retaildatabase.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "retaildatabase"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "edukron"
+		},
+		"adbdbtsqlserver_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"ls_ADBADFIntegration_version2_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"ls_adb_connection_properties_typeProperties_existingClusterId": {
+			"value": "0129-012052-fxsictc9"
+		},
+		"EventTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/d9db9343-0431-434a-9454-c9ec815c2be2/resourceGroups/InsuranceProject/providers/Microsoft.Storage/storageAccounts/insurancedataset"
+		},
+		"TW Trigger_properties_pipeline_parameters_pstartdate": {
+			"value": "@trigger().outputs.windowsstarttime"
+		},
+		"TW Trigger_properties_pipeline_parameters_penddate": {
+			"value": "@trigger().outputs.windowsEndTime"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/d9db9343-0431-434a-9454-c9ec815c2be2/resourceGroups/InsuranceProject/providers/Microsoft.Storage/storageAccounts/insurancedataset"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

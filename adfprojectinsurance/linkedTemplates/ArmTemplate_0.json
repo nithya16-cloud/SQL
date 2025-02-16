@@ -1,0 +1,1739 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfprojectinsurance"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage4'"
+		},
+		"AzureBlobStorage5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage5'"
+		},
+		"AzureBlobStorage6_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage6'"
+		},
+		"AzureBlobStorage7_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage7'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricks2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks2'"
+		},
+		"AzureDatabricks3_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks3'"
+		},
+		"AzureSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"adbdbtsqlserver_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'adbdbtsqlserver'"
+		},
+		"ls_ADBADFIntegration_version2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_ADBADFIntegration_version2'"
+		},
+		"ls_adb_connection_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_adb_connection'"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		},
+		"AzureDatabricks2_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		},
+		"AzureDatabricks3_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "retaildatabase.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "retaildatabase"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "edukron"
+		},
+		"adbdbtsqlserver_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		},
+		"ls_ADBADFIntegration_version2_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		},
+		"ls_adb_connection_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0129-012052-fxsictc9"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage4')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage4_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage5')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage5_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage6')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage6_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage7')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage7_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks2_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricks2_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks3_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricks3_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adbdbtsqlserver')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('adbdbtsqlserver_accessToken')]"
+					},
+					"existingClusterId": "[parameters('adbdbtsqlserver_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_ADBADFIntegration_version2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('ls_ADBADFIntegration_version2_accessToken')]"
+					},
+					"existingClusterId": "[parameters('ls_ADBADFIntegration_version2_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_adb_connection')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-3200403591554655.15.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adb_connection_accessToken')]"
+					},
+					"existingClusterId": "[parameters('ls_adb_connection_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ADBDBTOSQLSERVER')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Notebook1",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/anjalibharath712@gmail.com/DataMovementfromADBtoAzureSQL"
+						},
+						"linkedServiceName": {
+							"referenceName": "adbdbtsqlserver",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-01-29T04:00:31Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/adbdbtsqlserver')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "CustomerID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NameStyle",
+						"type": "bit"
+					},
+					{
+						"name": "Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "FirstName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "MiddleName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LastName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Suffix",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CompanyName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SalesPerson",
+						"type": "nvarchar"
+					},
+					{
+						"name": "EmailAddress",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PasswordHash",
+						"type": "varchar"
+					},
+					{
+						"name": "PasswordSalt",
+						"type": "varchar"
+					},
+					{
+						"name": "rowguid",
+						"type": "uniqueidentifier"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "SalesLT",
+					"table": "Customer"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "SalesOrderID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "RevisionNumber",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "OrderDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "DueDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ShipDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "Status",
+						"type": "tinyint",
+						"precision": 3
+					},
+					{
+						"name": "OnlineOrderFlag",
+						"type": "bit"
+					},
+					{
+						"name": "SalesOrderNumber",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PurchaseOrderNumber",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AccountNumber",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CustomerID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ShipToAddressID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "BillToAddressID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ShipMethod",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CreditCardApprovalCode",
+						"type": "varchar"
+					},
+					{
+						"name": "SubTotal",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "TaxAmt",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Freight",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "TotalDue",
+						"type": "money",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Comment",
+						"type": "nvarchar"
+					},
+					{
+						"name": "rowguid",
+						"type": "uniqueidentifier"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "SalesLT",
+					"table": "SalesOrderHeader"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "application_test.csv",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SK_ID_CURR",
+						"type": "String"
+					},
+					{
+						"name": "NAME_CONTRACT_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CODE_GENDER",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_CAR",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_REALTY",
+						"type": "String"
+					},
+					{
+						"name": "CNT_CHILDREN",
+						"type": "String"
+					},
+					{
+						"name": "AMT_INCOME_TOTAL",
+						"type": "String"
+					},
+					{
+						"name": "AMT_CREDIT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_ANNUITY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_GOODS_PRICE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_TYPE_SUITE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_INCOME_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_EDUCATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_FAMILY_STATUS",
+						"type": "String"
+					},
+					{
+						"name": "NAME_HOUSING_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "REGION_POPULATION_RELATIVE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_BIRTH",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_EMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_REGISTRATION",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_ID_PUBLISH",
+						"type": "String"
+					},
+					{
+						"name": "OWN_CAR_AGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_MOBIL",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMP_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_WORK_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_CONT_MOBILE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "OCCUPATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CNT_FAM_MEMBERS",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT_W_CITY",
+						"type": "String"
+					},
+					{
+						"name": "WEEKDAY_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "HOUR_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_LIVE_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_LIVE_CITY",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "ORGANIZATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_1",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_2",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_3",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_AVG",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MODE",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FONDKAPREMONT_MODE",
+						"type": "String"
+					},
+					{
+						"name": "HOUSETYPE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "TOTALAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "WALLSMATERIAL_MODE",
+						"type": "String"
+					},
+					{
+						"name": "EMERGENCYSTATE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_LAST_PHONE_CHANGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_2",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_3",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_4",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_5",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_6",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_7",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_8",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_9",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_10",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_11",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_12",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_13",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_14",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_15",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_16",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_17",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_18",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_19",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_20",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_21",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_HOUR",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_DAY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_WEEK",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_MON",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_QRT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_YEAR",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText10')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "application_test.csv",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SK_ID_CURR",
+						"type": "String"
+					},
+					{
+						"name": "NAME_CONTRACT_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CODE_GENDER",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_CAR",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_OWN_REALTY",
+						"type": "String"
+					},
+					{
+						"name": "CNT_CHILDREN",
+						"type": "String"
+					},
+					{
+						"name": "AMT_INCOME_TOTAL",
+						"type": "String"
+					},
+					{
+						"name": "AMT_CREDIT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_ANNUITY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_GOODS_PRICE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_TYPE_SUITE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_INCOME_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_EDUCATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "NAME_FAMILY_STATUS",
+						"type": "String"
+					},
+					{
+						"name": "NAME_HOUSING_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "REGION_POPULATION_RELATIVE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_BIRTH",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_EMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_REGISTRATION",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_ID_PUBLISH",
+						"type": "String"
+					},
+					{
+						"name": "OWN_CAR_AGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_MOBIL",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMP_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_WORK_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_CONT_MOBILE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_PHONE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "OCCUPATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "CNT_FAM_MEMBERS",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT",
+						"type": "String"
+					},
+					{
+						"name": "REGION_RATING_CLIENT_W_CITY",
+						"type": "String"
+					},
+					{
+						"name": "WEEKDAY_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "HOUR_APPR_PROCESS_START",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_LIVE_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_REGION_NOT_WORK_REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_LIVE_CITY",
+						"type": "String"
+					},
+					{
+						"name": "REG_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "LIVE_CITY_NOT_WORK_CITY",
+						"type": "String"
+					},
+					{
+						"name": "ORGANIZATION_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_1",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_2",
+						"type": "String"
+					},
+					{
+						"name": "EXT_SOURCE_3",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_AVG",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_AVG",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_AVG",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_AVG",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_AVG",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MODE",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MODE",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MODE",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MODE",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "APARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "BASEMENTAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BEGINEXPLUATATION_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "YEARS_BUILD_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "COMMONAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ELEVATORS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "ENTRANCES_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMAX_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FLOORSMIN_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LANDAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "LIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAPARTMENTS_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "NONLIVINGAREA_MEDI",
+						"type": "String"
+					},
+					{
+						"name": "FONDKAPREMONT_MODE",
+						"type": "String"
+					},
+					{
+						"name": "HOUSETYPE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "TOTALAREA_MODE",
+						"type": "String"
+					},
+					{
+						"name": "WALLSMATERIAL_MODE",
+						"type": "String"
+					},
+					{
+						"name": "EMERGENCYSTATE_MODE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_30_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "OBS_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DEF_60_CNT_SOCIAL_CIRCLE",
+						"type": "String"
+					},
+					{
+						"name": "DAYS_LAST_PHONE_CHANGE",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_2",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_3",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_4",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_5",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_6",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_7",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_8",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_9",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_10",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_11",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_12",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_13",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_14",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_15",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_16",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_17",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_18",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_19",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_20",
+						"type": "String"
+					},
+					{
+						"name": "FLAG_DOCUMENT_21",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_HOUR",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_DAY",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_WEEK",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_MON",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_QRT",
+						"type": "String"
+					},
+					{
+						"name": "AMT_REQ_CREDIT_BUREAU_YEAR",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage7')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText11')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "employees.csv",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "EMPLOYEE_ID",
+						"type": "String"
+					},
+					{
+						"name": "FIRST_NAME",
+						"type": "String"
+					},
+					{
+						"name": "LAST_NAME",
+						"type": "String"
+					},
+					{
+						"name": "EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "PHONE_NUMBER",
+						"type": "String"
+					},
+					{
+						"name": "HIRE_DATE",
+						"type": "String"
+					},
+					{
+						"name": "JOB_ID",
+						"type": "String"
+					},
+					{
+						"name": "SALARY",
+						"type": "String"
+					},
+					{
+						"name": "COMMISSION_PCT",
+						"type": "String"
+					},
+					{
+						"name": "MANAGER_ID",
+						"type": "String"
+					},
+					{
+						"name": "DEPARTMENT_ID",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage7')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText12')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage7",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "employees.csv",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "EMPLOYEE_ID",
+						"type": "String"
+					},
+					{
+						"name": "FIRST_NAME",
+						"type": "String"
+					},
+					{
+						"name": "LAST_NAME",
+						"type": "String"
+					},
+					{
+						"name": "EMAIL",
+						"type": "String"
+					},
+					{
+						"name": "PHONE_NUMBER",
+						"type": "String"
+					},
+					{
+						"name": "HIRE_DATE",
+						"type": "String"
+					},
+					{
+						"name": "JOB_ID",
+						"type": "String"
+					},
+					{
+						"name": "SALARY",
+						"type": "String"
+					},
+					{
+						"name": "COMMISSION_PCT",
+						"type": "String"
+					},
+					{
+						"name": "MANAGER_ID",
+						"type": "String"
+					},
+					{
+						"name": "DEPARTMENT_ID",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage7')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,509 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "application_test.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SK_ID_CURR",
+				"type": "String"
+			},
+			{
+				"name": "NAME_CONTRACT_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CODE_GENDER",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_OWN_CAR",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_OWN_REALTY",
+				"type": "String"
+			},
+			{
+				"name": "CNT_CHILDREN",
+				"type": "String"
+			},
+			{
+				"name": "AMT_INCOME_TOTAL",
+				"type": "String"
+			},
+			{
+				"name": "AMT_CREDIT",
+				"type": "String"
+			},
+			{
+				"name": "AMT_ANNUITY",
+				"type": "String"
+			},
+			{
+				"name": "AMT_GOODS_PRICE",
+				"type": "String"
+			},
+			{
+				"name": "NAME_TYPE_SUITE",
+				"type": "String"
+			},
+			{
+				"name": "NAME_INCOME_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "NAME_EDUCATION_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "NAME_FAMILY_STATUS",
+				"type": "String"
+			},
+			{
+				"name": "NAME_HOUSING_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "REGION_POPULATION_RELATIVE",
+				"type": "String"
+			},
+			{
+				"name": "DAYS_BIRTH",
+				"type": "String"
+			},
+			{
+				"name": "DAYS_EMPLOYED",
+				"type": "String"
+			},
+			{
+				"name": "DAYS_REGISTRATION",
+				"type": "String"
+			},
+			{
+				"name": "DAYS_ID_PUBLISH",
+				"type": "String"
+			},
+			{
+				"name": "OWN_CAR_AGE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_MOBIL",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_EMP_PHONE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_WORK_PHONE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_CONT_MOBILE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_PHONE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_EMAIL",
+				"type": "String"
+			},
+			{
+				"name": "OCCUPATION_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CNT_FAM_MEMBERS",
+				"type": "String"
+			},
+			{
+				"name": "REGION_RATING_CLIENT",
+				"type": "String"
+			},
+			{
+				"name": "REGION_RATING_CLIENT_W_CITY",
+				"type": "String"
+			},
+			{
+				"name": "WEEKDAY_APPR_PROCESS_START",
+				"type": "String"
+			},
+			{
+				"name": "HOUR_APPR_PROCESS_START",
+				"type": "String"
+			},
+			{
+				"name": "REG_REGION_NOT_LIVE_REGION",
+				"type": "String"
+			},
+			{
+				"name": "REG_REGION_NOT_WORK_REGION",
+				"type": "String"
+			},
+			{
+				"name": "LIVE_REGION_NOT_WORK_REGION",
+				"type": "String"
+			},
+			{
+				"name": "REG_CITY_NOT_LIVE_CITY",
+				"type": "String"
+			},
+			{
+				"name": "REG_CITY_NOT_WORK_CITY",
+				"type": "String"
+			},
+			{
+				"name": "LIVE_CITY_NOT_WORK_CITY",
+				"type": "String"
+			},
+			{
+				"name": "ORGANIZATION_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "EXT_SOURCE_1",
+				"type": "String"
+			},
+			{
+				"name": "EXT_SOURCE_2",
+				"type": "String"
+			},
+			{
+				"name": "EXT_SOURCE_3",
+				"type": "String"
+			},
+			{
+				"name": "APARTMENTS_AVG",
+				"type": "String"
+			},
+			{
+				"name": "BASEMENTAREA_AVG",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BEGINEXPLUATATION_AVG",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BUILD_AVG",
+				"type": "String"
+			},
+			{
+				"name": "COMMONAREA_AVG",
+				"type": "String"
+			},
+			{
+				"name": "ELEVATORS_AVG",
+				"type": "String"
+			},
+			{
+				"name": "ENTRANCES_AVG",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMAX_AVG",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMIN_AVG",
+				"type": "String"
+			},
+			{
+				"name": "LANDAREA_AVG",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAPARTMENTS_AVG",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAREA_AVG",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAPARTMENTS_AVG",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAREA_AVG",
+				"type": "String"
+			},
+			{
+				"name": "APARTMENTS_MODE",
+				"type": "String"
+			},
+			{
+				"name": "BASEMENTAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BEGINEXPLUATATION_MODE",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BUILD_MODE",
+				"type": "String"
+			},
+			{
+				"name": "COMMONAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "ELEVATORS_MODE",
+				"type": "String"
+			},
+			{
+				"name": "ENTRANCES_MODE",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMAX_MODE",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMIN_MODE",
+				"type": "String"
+			},
+			{
+				"name": "LANDAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAPARTMENTS_MODE",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAPARTMENTS_MODE",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "APARTMENTS_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "BASEMENTAREA_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BEGINEXPLUATATION_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "YEARS_BUILD_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "COMMONAREA_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "ELEVATORS_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "ENTRANCES_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMAX_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "FLOORSMIN_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "LANDAREA_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAPARTMENTS_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "LIVINGAREA_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAPARTMENTS_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "NONLIVINGAREA_MEDI",
+				"type": "String"
+			},
+			{
+				"name": "FONDKAPREMONT_MODE",
+				"type": "String"
+			},
+			{
+				"name": "HOUSETYPE_MODE",
+				"type": "String"
+			},
+			{
+				"name": "TOTALAREA_MODE",
+				"type": "String"
+			},
+			{
+				"name": "WALLSMATERIAL_MODE",
+				"type": "String"
+			},
+			{
+				"name": "EMERGENCYSTATE_MODE",
+				"type": "String"
+			},
+			{
+				"name": "OBS_30_CNT_SOCIAL_CIRCLE",
+				"type": "String"
+			},
+			{
+				"name": "DEF_30_CNT_SOCIAL_CIRCLE",
+				"type": "String"
+			},
+			{
+				"name": "OBS_60_CNT_SOCIAL_CIRCLE",
+				"type": "String"
+			},
+			{
+				"name": "DEF_60_CNT_SOCIAL_CIRCLE",
+				"type": "String"
+			},
+			{
+				"name": "DAYS_LAST_PHONE_CHANGE",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_2",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_3",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_4",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_5",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_6",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_7",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_8",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_9",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_10",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_11",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_12",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_13",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_14",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_15",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_16",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_17",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_18",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_19",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_20",
+				"type": "String"
+			},
+			{
+				"name": "FLAG_DOCUMENT_21",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_HOUR",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_DAY",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_WEEK",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_MON",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_QRT",
+				"type": "String"
+			},
+			{
+				"name": "AMT_REQ_CREDIT_BUREAU_YEAR",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "adfprojectinsurance",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "de733f4f-cc00-491c-b824-3b0d016ab073",
+		"tenantId": "6f9e6cd1-2f90-4637-9135-bbf7ad8b7a9a"
+	}
+}
